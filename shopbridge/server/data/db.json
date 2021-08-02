@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Body Lotion",
+      "description": "Moisture Body Lotion",
+      "price": 100,
+      "quantity": 1000
+    },
+    {
+      "id": 2,
+      "name": "Cheese",
+      "description": "Soft Creme Cheese",
+      "price": 200,
+      "quantity": 2000
+    },
+    {
+      "id": 3,
+      "name": "Face Wash",
+      "description": "Himalaya Face Wash",
+      "price": 70,
+      "quantity": 30
+    }
+  ]
+}

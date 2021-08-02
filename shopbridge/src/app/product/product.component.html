@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="container__inner product">
+        <div class="product__header">
+            Shop Bridge
+            <p-button label="Add" styleClass="product__header-btn p-button-sm" (click)="addProduct()"></p-button>
+        </div>
+        <div class="product__list">
+            <p-table [columns]="cols" [value]="products">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns">
+                            {{col.header}}
+                        </th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr>
+                        <td *ngFor="let col of columns">
+                            {{rowData[col.field]}}
+                        </td>
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success" (click)="editProduct(rowData)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning product__list-btn" (click)="deleteProduct(rowData)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+
+<p-dialog header="Product" [(visible)]="displayDailog" [breakpoints]="{'960px': '75vw'}" [style]="{width: '50vw'}" [baseZIndex]="10000" 
+    [draggable]="false" [resizable]="false" styleClass="product__dialog" (onHide)="dialogHide()">
+
+        <form [formGroup]="productForm" class="product__dialog-form">
+
+            <label class="product__dialog-form--label">Name: </label>
+            <input type="text" pInputText formControlName="name"> 
+            
+            <label class="product__dialog-form--label">Description: </label>
+            <input type="text" pInputText formControlName="description">
+
+            <label class="product__dialog-form--label">Price: </label>
+            <p-inputNumber formControlName="price" mode="currency" inputId="currency-india" currency="INR" currencyDisplay="code" locale="en-IN">
+            </p-inputNumber>
+
+            <label class="product__dialog-form--label">Quantity: </label>
+            <p-inputNumber inputId="integeronly" formControlName="quantity">
+            </p-inputNumber>
+        </form>
+
+        <ng-template pTemplate="footer">
+        <!-- <p-button (click)="displayDailog=false" label="No" styleClass="p-button-text"></p-button> -->
+        <p-button (click)="saveProduct()" label="Save" styleClass="p-button-sm"></p-button>
+        </ng-template>
+</p-dialog>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

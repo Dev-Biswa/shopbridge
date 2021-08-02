@@ -1,0 +1,45 @@
+.container {
+    padding: 60px 0;
+    &__inner {
+        max-width: 1464px;
+        margin: 0 auto;
+        padding: 24px 0;
+    }
+}
+.product {
+    &__header {
+        padding: 24px 0;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        line-height: 24px;
+        text-align: center;
+        position: relative;
+        background: #efefef;
+        &-btn {
+            position: absolute;
+            right: 24px;
+        }
+    }
+    &__list {
+        &-btn {
+            margin-left: 12px;
+        }
+    }
+    &__dialog {
+        &-form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            &--label {
+                margin: 6px 0;
+            }
+        }
+
+        .p-dialog {
+            &-content {
+                min-height: 300px;
+            }
+        }
+    }
+}
